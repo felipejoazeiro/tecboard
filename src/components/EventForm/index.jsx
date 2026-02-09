@@ -7,9 +7,9 @@ import './event-form-styles.css';
 import { SuspenseList } from "../SuspenseList";
 import { Suspense } from "react";
 
-export function EventForm(){
+export function EventForm({temas}){
   return (
-    <form className='form-event'>
+    <form className='form-event' action="">
       <TitleForm> Cadastro de evento </TitleForm>
       <div className="fields">
         <FormFieldset> 
@@ -17,12 +17,16 @@ export function EventForm(){
             <Input type="text" id='name' placeholder='Summer dev hits'/>
         </FormFieldset>
         <FormFieldset> 
+            <Label htmlFor="imageUrl"> Qual a url da imagem de capa</Label>
+            <Input type="text" id='imageUrl' placeholder='http://'/>
+        </FormFieldset>
+        <FormFieldset> 
             <Label htmlFor="dateEvent"> Data do evento </Label>
             <Input type="date" id='dateEvent' placeholder='Summer dev hits'/>
         </FormFieldset>
-            <FormFieldset> 
-            <Label htmlFor="dateEvent"> Data do evento </Label>
-            <SuspenseList/>
+        <FormFieldset> 
+          <Label htmlFor="themeEvent"> Tema do evento </Label>
+          <SuspenseList id="themeEvent" name="themeEvent" itens={temas}/>
         </FormFieldset>
       </div>
       <div className="actions">

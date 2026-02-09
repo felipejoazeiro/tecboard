@@ -1,10 +1,20 @@
 .suspense-list {
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #1A1A1A;
     border: 1px solid #4A4949;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     color: #FFFFFF;
     padding: 8px 16px;
+    color-scheme: dark;
+}
+
+.suspense-list option {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+}
+
+.suspense-list option:disabled {
+    color: #9A9A9A;
 }
