@@ -42,24 +42,14 @@ function App() {
     </header>
     <Banner />
     <EventForm />
-    <section>
-      <Theme theme={exm[0]} />
-    </section>
-    <section>
-      <Theme theme={exm[1]} />
-    </section>
-    <section>
-      <Theme theme={exm[2]} />
-    </section>
-    <section>
-      <Theme theme={exm[3]} />
-    </section>
-    <section>
-      <Theme theme={exm[4]} />
-    </section>
-    <section>
-      <Theme theme={exm[5]} />
-    </section>
+    {exm.map(function (a) {
+      return (<section key={a.id}> 
+       <Theme theme={a} />
+      </section>
+      )
+    })}
+
+    
    </main>
   )
 }
