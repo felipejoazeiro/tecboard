@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { EventForm } from './components/EventForm'
 import { Theme } from './components/Theme'
+import { Banner } from './components/Banners'
 
 
 const exm = [
@@ -39,9 +40,7 @@ function App() {
     <header>
       <img src="/logo.png" alt="" />
     </header>
-    <section>
-      <img src="/banner.png" alt="" />
-    </section>
+    <Banner />
     <EventForm />
     <section>
       <Theme theme={exm[0]} />
