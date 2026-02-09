@@ -8,54 +8,62 @@ import { Banner } from './components/Banners'
 import { EventCard } from './components/EventCard'
 
 
-const exm = [
-  {
-    id: 1,
-    name: "Front-end",
-  },
-  {
-    id: 2,
-    name: "Back-end",
-  },
-  {
-    id: 3,
-    name: "DevOps",
-  },
-  {
-    id: 4,
-    name: "IA",
-  },
-  {
-    id: 5,
-    name: "Data Science",
-  },
-  {
-    id: 6,
-    name: "Cloud",
-  }
-];
-
-const events = [
-  {
-    capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
-    tema: exm[0],
-    data: new Date(),
-    titulo: "Mulheres no front"
-  }
-]
 
 function App() {
+  const exm = [
+    {
+      id: 1,
+      name: "Front-end",
+    },
+    {
+      id: 2,
+      name: "Back-end",
+    },
+    {
+      id: 3,
+      name: "DevOps",
+    },
+    {
+      id: 4,
+      name: "IA",
+    },
+    {
+      id: 5,
+      name: "Data Science",
+    },
+    {
+      id: 6,
+      name: "Cloud",
+    }
+  ];
+  
+  const events = [
+    {
+      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
+      tema: exm[0],
+      data: new Date(),
+      titulo: "Mulheres no front"
+    }
+  ]
+
+  function addEvent(e) {
+      events.push(e);
+      console.log(events);
+  }
   return (
    <main>
     <header>
       <img src="/logo.png" alt="" />
     </header>
     <Banner />
-    <EventForm temas={exm} />
+    <EventForm temas={exm} onSubmit={addEvent}/>
     {exm.map(function (a) {
       return (<section key={a.id}> 
        <Theme theme={a} />
-       <EventCard eventos = {events[0]}/>
+       {events.map( function (item, index){
+          return <EventCard key={index} eventos = {item} />
+       }
+       )}
       </section>
       )
     })}    
