@@ -10,6 +10,16 @@ import { EventCard } from './components/EventCard'
 
 
 function App() {
+
+  const [estado, setEstado] = useState([
+    {
+      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
+      tema: exm[0],
+      data: new Date(),
+      titulo: "Mulheres no front"
+    }
+  ]);
+
   const exm = [
     {
       id: 1,
@@ -36,19 +46,10 @@ function App() {
       name: "Cloud",
     }
   ];
-  
-  const events = [
-    {
-      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
-      tema: exm[0],
-      data: new Date(),
-      titulo: "Mulheres no front"
-    }
-  ]
 
   function addEvent(e) {
-      events.push(e);
-      console.log(events);
+      setEstado([...estado, e]);
+      console.log(estado);
   }
   return (
    <main>
