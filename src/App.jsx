@@ -58,16 +58,27 @@ function App() {
     </header>
     <Banner />
     <EventForm temas={exm} onSubmit={addEvent}/>
-    {exm.map(function (a) {
+    <section className="contaier">
+      {exm.map(function (a) {
+        if(!estado.some(function(params){
+          return params.tema.id === a.id;
+        })){
+          return null;
+        }
       return (<section key={a.id}> 
        <Theme theme={a} />
-       {events.map( function (item, index){
+       <div className="eventos">
+       {estado.filter(function(params){
+         return params.tema.id === a.id;
+       }).map( function (item, index){
           return <EventCard key={index} eventos = {item} />
        }
        )}
+       </div>
       </section>
       )
     })}    
+    </section>
    </main>
   )
 }
