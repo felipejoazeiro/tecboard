@@ -61,8 +61,9 @@ function App() {
     setShowDialog(!showDialog);
   }
 
-  const addTodo = () => {
-    console.log('Precisamos add um novo Todo')
+  const addTodo = (value) => {
+    console.log('Precisamos add um novo Todo', value);
+    setShowDialog(false);
   }
 
   return (
@@ -88,7 +89,7 @@ function App() {
           </ToDoList>
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
-              <ToDoForm onSubmit={addTodo} />
+            <ToDoForm onSubmit={addTodo} />
             </Dialog>
             <FabButton onClick={toggleDialog}>
               <IconPlus />
