@@ -1,11 +1,19 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 
 import './styles.css';
 
-export function Dialog () {
+export function Dialog ({ isOpen, onClose }) {
 
     const dialogRef = useRef(null);
 
+    useEffect(() => {
+        if (!dialogRef.current) return;
+        if (isOpen) {
+            openDialog();
+        } else {
+            closeDialog();
+        }
+    }, [isOpen]);
 
     const openDialog = () => {
         dialogRef.current.showModal();
@@ -18,10 +26,9 @@ export function Dialog () {
     return ( 
         <>
             <dialog ref={dialogRef}>
-                <button autoFocus onClick={closeDialog}>Close</button>
+                <button autoFocus onClick={onClose}>Close</button>
                 <p>This modal dialog has a grooby backdrop!</p>
             </dialog>
-            <button onClick={openDialog}>Show The Dialog</button>
         </>
     );
 }
