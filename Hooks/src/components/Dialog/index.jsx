@@ -1,8 +1,9 @@
 import React, {useEffect, useRef} from "react";
 
 import './styles.css';
+import { IconClose } from "../icons";
 
-export function Dialog ({ isOpen, onClose }) {
+export function Dialog ({ isOpen, onClose, children }) {
 
     const dialogRef = useRef(null);
 
@@ -25,9 +26,13 @@ export function Dialog ({ isOpen, onClose }) {
 
     return ( 
         <>
-            <dialog ref={dialogRef}>
-                <button autoFocus onClick={onClose}>Close</button>
-                <p>This modal dialog has a grooby backdrop!</p>
+            <dialog ref={dialogRef} className="dialog"> 
+                <div className="close-btn-wrapper">
+                    <button autoFocus onClick={onClose} className="close-btn">
+                        <IconClose />
+                    </button>
+                </div>
+                {children}
             </dialog>
         </>
     );

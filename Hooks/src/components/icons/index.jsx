@@ -26,3 +26,12 @@ export function IconPlus() {
         </svg>
     )
 }
+
+
+export function IconClose() {
+    return (
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.9844 1.01562L12.9688 0L6.98438 5.98438L1 0L0 1.01562L5.98438 6L0 11L1 12.0156L6.98438 7.03125L12.9688 12.0156L13.9844 11L8 6L13.9844 1.01562Z" fill="#EAEAEA" />
+        </svg>
+    )
+}
