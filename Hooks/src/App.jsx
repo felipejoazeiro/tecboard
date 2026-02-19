@@ -6,6 +6,7 @@ import { FabButton } from "./components/FabButton"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { Heading } from "./components/Heading"
+import { TextInput } from "./components/TextInput"
 import { IconPlus, IconSchool } from "./components/icons"
 import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
@@ -83,7 +84,7 @@ function App() {
           </ToDoList>
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
-                <p>Em breve você poderá adicionar novos itens à sua lista de estudos.</p>
+              <TextInput placeholder="Descrição do item" />
             </Dialog>
             <FabButton onClick={toggleDialog}>
               <IconPlus />
