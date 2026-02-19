@@ -12,7 +12,7 @@ import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
 import { ToDoList } from "./components/ToDoList"
 
-const todos = [
+/* const todos = [
   {
     id: 1,
     description: "JSX e componentes",
@@ -51,18 +51,42 @@ const completed = [
     completed: true,
     createdAt: "2022-10-31"
   }
-]
+] */
 
 function App() {
 
   const [showDialog, setShowDialog] = useState(false);
 
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      description: "JSX e componentes",
+      completed: false,
+      createdAt: "2022-10-31"
+    },
+    {
+      id: 2,
+      description: "Props, state e hooks",
+      completed: true,
+      createdAt: "2022-10-31"
+    },
+  ]);
+
   const toggleDialog = () => {
     setShowDialog(!showDialog);
   }
 
-  const addTodo = (value) => {
-    console.log('Precisamos add um novo Todo', value);
+  const addTodo = (description) => {
+    if (!description) return;
+    setTodos(prevState => {
+      const todo = {
+        id: Date.now(),
+        description,
+        completed: false,
+        createdAt: new Date().toISOString().split('T')[0]
+      };
+      return [...prevState, todo];
+    });
     setShowDialog(false);
   }
 
@@ -77,13 +101,13 @@ function App() {
         <ChecklistsWrapper>
           <SubHeading>Para estudar</SubHeading>
           <ToDoList>
-            {todos.map(function (t) {
+            {todos.filter(t => !t.completed).map(function (t) {
               return <ToDoItem key={t.id} item={t} />
             })}
           </ToDoList>
           <SubHeading>Concluído</SubHeading>
           <ToDoList>
-            {completed.map(function (t) {
+            {todos.filter(t => t.completed).map(function (t) {
               return <ToDoItem key={t.id} item={t} />
             })}
           </ToDoList>

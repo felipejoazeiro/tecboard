@@ -18,7 +18,7 @@ export function ToDoForm(props) {
 
     return (    
         <form onSubmit={handleSubmit}>
-            <TextInput placeholder="Descrição do item" value={value} onChange={handleChange} required />
+            <TextInput placeholder="Descrição do item" value={value} onChange={handleChange} required  name="description"/>
             <Button> Salvar Item </Button>
         </form>
     );
