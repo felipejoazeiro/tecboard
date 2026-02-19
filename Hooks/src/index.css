@@ -7,3 +7,10 @@ body {
   background-position: top center;
   background-size: auto;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}

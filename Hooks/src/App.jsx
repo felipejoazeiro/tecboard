@@ -6,8 +6,8 @@ import { FabButton } from "./components/FabButton"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { Heading } from "./components/Heading"
-import { TextInput } from "./components/TextInput"
 import { IconPlus, IconSchool } from "./components/icons"
+import { ToDoForm } from "./components/ToDoForm"
 import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
 import { ToDoList } from "./components/ToDoList"
@@ -61,6 +61,10 @@ function App() {
     setShowDialog(!showDialog);
   }
 
+  const addTodo = () => {
+    console.log('Precisamos add um novo Todo')
+  }
+
   return (
     <main>
       <Container>
@@ -84,7 +88,7 @@ function App() {
           </ToDoList>
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
-              <TextInput placeholder="Descrição do item" />
+              <ToDoForm onSubmit={addTodo} />
             </Dialog>
             <FabButton onClick={toggleDialog}>
               <IconPlus />
