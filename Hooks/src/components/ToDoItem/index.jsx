@@ -1,7 +1,7 @@
 import "./todo-item.style.css";
 import { IconPencil, IconTrash } from "../icons";
 import { useContext } from "react";
-import ToDoContext from "../ToDoContext/TodoContext";
+import ToDoContext from "../ToDoProvider/TodoContext";
 
 export function ToDoItem({ item }) {
   const { toggleTodoCompleted, removeTodo } = useContext(ToDoContext);

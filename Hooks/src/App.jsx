@@ -9,7 +9,7 @@ import { Heading } from "./components/Heading";
 import { IconPlus, IconSchool } from "./components/icons";
 import { ToDoForm } from "./components/ToDoForm";
 import { ToDoGroup } from "./components/ToDoGroup";
-import ToDoContext from "./components/ToDoContext/TodoContext";
+import ToDoContext from "./components/ToDoProvider/TodoContext";
 
 function App() {
   const [showDialog, setShowDialog] = useState(false);
