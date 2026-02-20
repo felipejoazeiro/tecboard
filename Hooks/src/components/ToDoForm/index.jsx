@@ -1,25 +1,31 @@
-import './styles.css';
-import { TextInput } from '../TextInput';
-import { useState } from 'react';
-import {Button } from '../Button';
+import "./styles.css";
+import { TextInput } from "../TextInput";
+import { useState } from "react";
+import { Button } from "../Button";
 
 export function ToDoForm(props) {
-    const [value, setValue] = useState("");
+  const [value, setValue] = useState(props.defaultValue ?? "");
 
-    function handleChange(e) {
-        setValue(e.target.value);
-    }
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.onSubmit(value);
-        setValue("");
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSubmit(value);
+    setValue("");
+  }
 
-    return (    
-        <form onSubmit={handleSubmit}>
-            <TextInput placeholder="Descrição do item" value={value} onChange={handleChange} required  name="description"/>
-            <Button> Salvar Item </Button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextInput
+        placeholder="Descrição do item"
+        value={value}
+        onChange={handleChange}
+        required
+        name="description"
+      />
+      <Button> Salvar Item </Button>
+    </form>
+  );
 }
