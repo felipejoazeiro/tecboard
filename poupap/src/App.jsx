@@ -6,6 +6,7 @@ import { Typography } from "./components/Typography";
 import { DailyBudget } from "./components/DailyBudget";
 import Card from "./components/Card";
 import { SavingsStatus } from "./components/SavingsStatus";
+import { Accounts } from "./components/Accounts";
 
 import styles from "./app.module.css";
 import { Transactions } from "./components/Transactions";
@@ -46,10 +47,10 @@ function App() {
             </Card>
             <Card>
               <Card.Header>
-                <Typography variant="h2">Saldo</Typography>
+                Contas
               </Card.Header>
               <Card.Body>
-                <Typography variant="h3">R$ 1.000,00</Typography>
+                <Accounts />
               </Card.Body>
             </Card>
           </section>
