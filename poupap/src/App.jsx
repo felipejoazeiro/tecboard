@@ -5,6 +5,7 @@ import { SearchInput } from './components/SearchInput'
 import { Typography } from './components/Typography'
 import { DailyBudget } from './components/DailyBudget'
 import Card  from './components/Card'
+import { SavingsStatus } from './components/SavingsStatus'
 
 function App() {
   return (
@@ -27,10 +28,10 @@ function App() {
           </Card>
           <Card>
             <Card.Header>
-              <Typography variant='h2'>Progresso da meta financeira</Typography>
+              Progresso da meta financeira
             </Card.Header>
             <Card.Body>
-              <Typography variant='h3'>R$ 1.000,00</Typography>
+              <SavingsStatus percent={75} />
             </Card.Body>
           </Card>
           <Card>
