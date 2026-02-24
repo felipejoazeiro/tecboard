@@ -1,13 +1,15 @@
 import { Container } from './components/Container'
 import { Aside } from './components/Aside'
+import { Main } from './components/Main'
+import { SearchInput } from './components/SearchInput'
 
 function App() {
   return (
     <Container>
       <Aside/>
-      <h1>
-        Poupapp - O aplicativo de controle financeiro que vai transformar a sua vida!
-      </h1>
+      <Main>
+        <SearchInput />
+      </Main>
     </Container>
   )
 }
