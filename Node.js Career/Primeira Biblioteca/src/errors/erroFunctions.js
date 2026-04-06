@@ -1,8 +1,10 @@
+import chalk from "chalk";
+
 function treatError(error) {
   if (error.code === "ENOENT") {
-    throw new Error("Arquivo não encontrado. Verifique o caminho e tente novamente.");
+    throw new Error(chalk.red("Arquivo não encontrado. Verifique o caminho e tente novamente."));
   } else {
-    console.error("Erro ao ler o arquivo:", error.message);
+    console.error(chalk.red("Erro ao ler o arquivo:"), chalk.red(error.message));
   }
 }
 
