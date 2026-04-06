@@ -1,22 +1,21 @@
-console.log("Hello, World! This is my first Node.js library.");
-
+const { count } = require("console");
 const fs = require("fs");
+const { treatError } = require("./errors/erroFunctions");
 
 const filePath = process.argv;
 const link = filePath[2];
 
 fs.readFile(link, "utf8", (err, data) => {
-  if (err) {
-    console.error("Erro ao ler o arquivo:", err);
-    return;
+  try {
+    if (err) throw err;
+    countWords(data);
+  } catch (error) {
+    treatError(error);
   }
-
-  const lines = lineBreak(data);
-  console.log("Linhas do arquivo:", lines);
 });
 
-function lineBreak(text) {
-  const lines = text.toLowerCase().split("\n");
+function countWords(text) {
+  const lines = extractParagraphs(text);
   const count = lines
     .filter((line) => line.trim() !== "")
     .flatMap((line) => {
@@ -24,6 +23,10 @@ function lineBreak(text) {
     });
   console.log("Contagem de palavras:", count);
   return lines;
+}
+
+function extractParagraphs(text) {
+  return text.toLowerCase().split("\n");
 }
 
 function checkDoubleWords(line) {
