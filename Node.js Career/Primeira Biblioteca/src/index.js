@@ -1,19 +1,3 @@
-const { count } = require("console");
-const fs = require("fs");
-const { treatError } = require("./errors/erroFunctions");
-
-const filePath = process.argv;
-const link = filePath[2];
-
-fs.readFile(link, "utf8", (err, data) => {
-  try {
-    if (err) throw err;
-    countWords(data);
-  } catch (error) {
-    treatError(error);
-  }
-});
-
 function countWords(text) {
   const lines = extractParagraphs(text);
   const count = lines
@@ -21,12 +5,11 @@ function countWords(text) {
     .flatMap((line) => {
       return checkDoubleWords(line);
     });
-  console.log("Contagem de palavras:", count);
-  return lines;
+  return count;
 }
 
 function extractParagraphs(text) {
-  return text.toLowerCase().split("\n");
+  return text.toLowerCase().split(/\r?\n/);
 }
 
 function checkDoubleWords(line) {
@@ -44,3 +27,7 @@ function checkDoubleWords(line) {
 function cleanWords(text) {
   return text.replace(/[^a-zA-Z0-9\s]/g, "");
 }
+
+export {
+  countWords,
+};

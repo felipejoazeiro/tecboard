@@ -6,6 +6,6 @@ function treatError(error) {
   }
 }
 
-module.exports = {
+export {
   treatError,
 };

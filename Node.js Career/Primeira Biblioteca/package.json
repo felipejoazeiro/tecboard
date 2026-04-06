@@ -1,0 +1,13 @@
+{
+  "name": "primeira-biblioteca",
+  "version": "1.0.0",
+  "description": "> Projeto de estudos da formação **Back End com Node.js** na [Alura](https://www.alura.com.br).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
