@@ -1,11 +1,70 @@
-# React + Vite
+# TecBoard — Painel de Eventos Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de estudos desenvolvido durante a formação **React** na [Alura](https://www.alura.com.br).
 
-Currently, two official plugins are available:
+TecBoard é um painel de gerenciamento de eventos de tecnologia, onde o usuário pode cadastrar e visualizar eventos por tema (Front-end, Back-end, DevOps, IA, Data Science, Cloud).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## Tecnologias utilizadas
+
+- React 19
+- Vite
+- CSS Modules
+- ESLint
+
+---
+
+## Tópicos estudados
+
+### Estado com `useState`
+- Gerenciamento de lista de eventos com estado local
+- Atualização imutável do array de estado com spread operator (`[...estado, novoEvento]`)
+- Passagem de funções como props para componentes filhos (`onSubmit`)
+
+### Componentes e Props
+- Criação de componentes funcionais: `EventCard`, `EventForm`, `Banner`, `Theme`
+- Passagem de dados via props
+- Renderização de listas dinâmicas com `.map()`
+
+### Formulários controlados
+- Captura de dados do formulário com campos de título, data, capa e tema
+- Seleção de tema a partir de lista pré-definida
+
+### Organização de componentes
+- Estrutura de pastas por componente
+- Separação de estilos com arquivos CSS por componente
+
+---
+
+## Temas de eventos disponíveis
+
+- Front-end
+- Back-end
+- DevOps
+- IA
+- Data Science
+- Cloud
+
+---
+
+## Como executar
+
+```bash
+npm install
+npm run dev
+```
+
+Acesse `http://localhost:5173` no navegador.
+
+---
+
+## Próximos passos
+
+- [ ] Persistência de dados com `localStorage`
+- [ ] Filtro de eventos por tema
+- [ ] Edição e remoção de eventos
+- [ ] Responsividade mobile
 
 ## React Compiler
 

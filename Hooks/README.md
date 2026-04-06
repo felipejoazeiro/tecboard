@@ -1,3 +1,20 @@
+# Plano de Estudos — Hooks React
+
+> Projeto de estudos desenvolvido durante a formação **React com Hooks** na [Alura](https://www.alura.com.br).
+
+---
+
+## O que foi estudado
+
+- `useState` para gerenciar lista de tarefas e visibilidade do modal
+- `useContext` para consumir o `ToDoContext` em qualquer componente
+- `useEffect` para persistência com `localStorage`
+- Criação de contexto com `createContext` e `Provider`
+- Componentização avançada com separação de UI e lógica de negócio
+- CSS Modules por componente
+
+---
+
 ![](thumbnail.png)
 
 # App de Checklist de Estudos
