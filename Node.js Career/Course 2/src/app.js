@@ -1,9 +1,10 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import { Book } from './models/Book.js';
 import connectToDatabase from './config/dbConnect.js';
+import routes from './routes/index.js';
 
 const app = express();
+
+routes(app);
 
 const connection = await connectToDatabase();
 
@@ -13,36 +14,6 @@ connection.on('error', (err) => {
 
 connection.once('open', () => {
     console.log('Database connected successfully');
-});
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.status(200).send('Hello World!');
-});
-
-app.get('/mongo/ping', async (req, res) => {
-    try {
-        if (mongoose.connection.readyState !== 1) {
-            return res.status(503).json({ ok: false, message: 'MongoDB não conectado' });
-        }
-
-        await mongoose.connection.db.admin().command({ ping: 1 });
-        return res.status(200).json({ ok: true });
-    }
-    catch (err) {
-        return res.status(500).json({ ok: false, error: err.message });
-    }
-});
-
-app.get('/books', async (req, res) => {
-    try {
-        const books = await Book.find({})
-        return res.status(200).json(books);
-    }
-    catch (err) {
-        return res.status(500).json({ message: err.message });
-    }
 });
 
 app.get('/books/:id', async (req, res) => {
