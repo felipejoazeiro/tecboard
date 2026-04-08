@@ -1,16 +1,18 @@
-import express from 'express';
-
-import { Book } from '../models/Book.js';
+import mongoose from 'mongoose';
+import booksRoutes from './booksRoutes.js';
 
 const routes = (app) => {
-
-    app.route("/").get((req, res) => {
-        res.status(200).send("Hello World!");
+    app.get('/', (req, res) => {
+        res.status(200).send('Hello World!');
     });
 
-    app.route("/mongo/ping").get(async (req, res) => {
+    app.get('/mongo/ping', async (req, res) => {
         try {
-            await Book.db.admin().ping();
+            if (mongoose.connection.readyState !== 1) {
+                return res.status(503).json({ ok: false, message: 'MongoDB não conectado' });
+            }
+
+            await mongoose.connection.db.admin().command({ ping: 1 });
             return res.status(200).json({ ok: true });
         }
         catch (err) {
@@ -18,8 +20,7 @@ const routes = (app) => {
         }
     });
 
-    app.use(express.json(), Book)
-
-}
+    app.use(booksRoutes);
+};
 
 export default routes;
