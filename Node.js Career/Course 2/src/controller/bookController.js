@@ -50,11 +50,8 @@ class BookController {
   }
 
   static async updateBook(req, res) {
-    const bookId = parseInt(req.params.id);
-    if (Number.isNaN(bookId)) {
-      return res.status(400).json({ message: 'Invalid id' });
-    }
-
+    const bookId =req.params.id;
+    
     const { title, author } = req.body;
     if (!title || !author) {
       return res.status(400).json({ message: 'title and author are required' });
