@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import booksRoutes from './booksRoutes.js';
+import authorRoutes from './authorRoutes.js';
 
 const routes = (app) => {
     app.get('/', (req, res) => {
@@ -21,6 +22,7 @@ const routes = (app) => {
     });
 
     app.use(booksRoutes);
+    app.use(authorRoutes);
 };
 
 export default routes;

@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+import {authorSchema} from './Author.js';
 
 const bookSchema = new mongoose.Schema(
     {
         id: { type: mongoose.Schema.Types.ObjectId},
         title: { type: String, required: true },
-        author: { type: String, required: true },
+        author: authorSchema,
     },
     {
         versionKey: false,
@@ -12,4 +13,4 @@ const bookSchema = new mongoose.Schema(
     }
 );
 
-export const Book = mongoose.models.Livro || mongoose.model('Livro', bookSchema);
+export const book = mongoose.models.Livro || mongoose.model('Livro', bookSchema);

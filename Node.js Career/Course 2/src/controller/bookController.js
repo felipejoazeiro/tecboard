@@ -1,9 +1,9 @@
-import { Book } from "../models/Book.js";
+import { book } from "../models/Book.js";
 
 class BookController {
   static async getBooks(req, res) {
     try {
-      const docs = await Book.find({})
+      const docs = await book.find({})
         .sort({ id: 1 })
         .select('-_id id title author')
         .lean();
@@ -21,7 +21,7 @@ class BookController {
     }
 
     try {
-      const doc = await Book.findOne({ id: bookId })
+      const doc = await book.findOne({ id: bookId })
         .select('-_id id title author')
         .lean();
       if (!doc) {
@@ -40,9 +40,9 @@ class BookController {
     }
 
     try {
-      const last = await Book.findOne({}).sort({ id: -1 }).select("id").lean();
+      const last = await book.findOne({}).sort({ id: -1 }).select("id").lean();
       const nextId = (last?.id ?? 0) + 1;
-      await Book.create({ id: nextId, title, author });
+      await book.create({ id: nextId, title, author });
       return res.status(201).json({ id: nextId, title, author });
     } catch (err) {
       return res.status(500).json({ message: err.message });
@@ -51,14 +51,14 @@ class BookController {
 
   static async updateBook(req, res) {
     const bookId =req.params.id;
-    
+
     const { title, author } = req.body;
     if (!title || !author) {
       return res.status(400).json({ message: 'title and author are required' });
     }
 
     try {
-      const updated = await Book.findOneAndUpdate(
+      const updated = await book.findOneAndUpdate(
         { id: bookId },
         { title, author },
         { new: true }
@@ -83,7 +83,7 @@ class BookController {
     }
 
     try {
-      const result = await Book.deleteOne({ id: bookId });
+      const result = await book.deleteOne({ id: bookId });
       if (result.deletedCount === 0) {
         return res.status(404).json({ message: 'Book not found' });
       }
