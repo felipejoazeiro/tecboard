@@ -36,7 +36,9 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 
 | Projeto | Tecnologias | Descrição |
 |---------|-------------|-----------|
-| [Primeira Biblioteca](./Node.js%20Career/Primeira%20Biblioteca) | Node.js | Leitura de arquivos com o módulo `fs` e `process.argv` |
+| [Primeira Biblioteca (Course 1)](./Node.js%20Career/Course%201) | Node.js | CLI para leitura/validação de arquivos usando `fs` e argumentos (`process.argv`) |
+| [API Express + MongoDB (Course 2)](./Node.js%20Career/Course%202) | Node.js, Express, Mongoose, dotenv, nodemon | API REST com rotas de livros/autores e verificação de conexão (`/mongo/ping`) |
+| [API Express + MongoDB (Course 3)](./Node.js%20Career/Course%203) | Node.js, Express, Mongoose, dotenv, nodemon | Projeto do curso (Alura) com API REST conectada ao MongoDB |
 
 ---
 
@@ -64,6 +66,52 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 | [Python para Dados 2](./CD/Python%20para%20Dados%202) | Python, Pandas, Seaborn | Análise e visualização avançada de dados |
 
 ---
+
+## Como executar
+
+> Pré-requisitos: **Node.js + npm** instalados. Alguns projetos podem exigir uma versão mínima do Node (ex.: `Hooks` declara `node >= 22` no `package.json`).
+
+### Projetos React (Vite)
+
+> Vale para: `CodeConnect`, `fp` (TecBoard), `Hooks` (Plano de Estudos) e `poupap`.
+
+```bash
+cd <pasta-do-projeto>
+npm install
+npm run dev
+```
+
+### Node.js Career — Course 1 (Primeira Biblioteca)
+
+```bash
+cd "Node.js Career/Course 1"
+node src/index.js arquivos/texto-aprendizado.txt
+```
+
+### Node.js Career — Course 2 (API Express + MongoDB)
+
+- Variáveis de ambiente esperadas em `.env`:
+	- `MONGODB_URI` (obrigatória)
+	- `MONGODB_PASSWORD` (opcional, se sua URI usar `<db_password>`)
+	- `MONGODB_DB_NAME` (opcional)
+
+```bash
+cd "Node.js Career/Course 2"
+npm install
+npm run dev
+```
+
+### Node.js Career — Course 3 (API Express + MongoDB)
+
+- Variáveis de ambiente esperadas em `.env`:
+	- `STRING_CONEXAO_DB` (obrigatória)
+	- `PORT` (opcional)
+
+```bash
+cd "Node.js Career/Course 3"
+npm install
+npm run dev
+```
 
 ## Tecnologias que já usei
 
@@ -104,3 +152,5 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/seu-usuario)
+
+> Dica: troque os links acima pelos seus perfis reais.
