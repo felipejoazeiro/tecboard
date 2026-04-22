@@ -1,4 +1,4 @@
-# Olá, eu sou [Seu Nome] 👋
+# Olá, eu sou Felipe Joazeiro 👋
 
 Desenvolvedor em formação, estudando **Back End com Node.js** na [Alura](https://www.alura.com.br).  
 Apaixonado por tecnologia, aprendizado contínuo e construção de soluções que fazem sentido.
