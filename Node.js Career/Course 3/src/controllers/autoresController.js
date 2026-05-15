@@ -1,4 +1,4 @@
-import autores from "../models/Autor.js";
+import {autores} from "../models/index.js";
 //import mongoose from "mongoose";
 
 class AutorController {
