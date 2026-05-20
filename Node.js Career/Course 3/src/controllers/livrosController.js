@@ -1,14 +1,15 @@
+import RequisicaoIncorreta from "../errors/RequisicaoIncorreta.js";
 import {livros, autores} from "../models/index.js";
 
 class LivroController {
 
   static listarLivros = async (req, res, next) => {
     try {
-      const livrosResultado = await livros.find()
-        .populate("autor")
-        .exec();
+      const buscaLivros = livros.find();
 
-      res.status(200).json(livrosResultado);
+      req.resultado = buscaLivros;
+
+      next();
     } catch (erro) {
       next(erro);
     }
@@ -81,11 +82,13 @@ class LivroController {
       const busca = await processaBusca(req.query);
 
       if (busca !== null) {
-        const livroResultado = await livros.find(busca).populate("autor");
+        const livroResultado = livros.find(busca).populate("autor");
 
-        res.status(200).send(livroResultado);
+        req.resultado = livroResultado;
+
+        next();
       }else{
-        res.status(200).send([]);
+        next(new RequisicaoIncorreta());
       }
     } catch (erro) {
       next(erro);

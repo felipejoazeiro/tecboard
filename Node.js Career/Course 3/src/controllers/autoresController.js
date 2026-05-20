@@ -2,14 +2,15 @@ import {autores} from "../models/index.js";
 //import mongoose from "mongoose";
 
 class AutorController {
-  static listarAutores = async (req, res) => {
+  static listarAutores = async (req, res, next) => {
     try {
-      const autoresResultado = await autores.find();
+      const autoresResultado = autores.find();
 
-      res.status(200).json(autoresResultado);
+      req.resultado = autoresResultado;
+
+      next();
     } catch (erro) {
-      console.error(erro);
-      res.status(500).json({ message: "Erro interno no servidor" });
+      next(erro);
     }
   };
 
