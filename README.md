@@ -50,6 +50,7 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 | [TecBoard](./fp) | React 19, CSS Modules | Painel de eventos tech com cadastro por tema |
 | [Plano de Estudos](./Hooks) | React 19, Context API, Hooks | App de checklist com gerenciamento de estado global |
 | [Poupap](./poupap) | React 19, React Router, Tailwind CSS | Controle financeiro pessoal |
+| [Alura Books](./Node.js%20Career/Course%204/alura-books) | React 19, Create React App | Catálogo de livros desenvolvido no Course 4 da trilha Node.js Career |
 
 ---
 
@@ -111,6 +112,14 @@ npm run dev
 cd "Node.js Career/Course 3"
 npm install
 npm run dev
+```
+
+### Node.js Career — Course 4 (Alura Books)
+
+```bash
+cd "Node.js Career/Course 4/alura-books"
+npm install
+npm start
 ```
 
 ## Tecnologias que já usei
