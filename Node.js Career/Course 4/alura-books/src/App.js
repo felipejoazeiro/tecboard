@@ -1,11 +1,15 @@
 import './App.css';
 import Logo from './components/Logo';
 import Menu from './components/Menu';
+import IconList from './components/IconList';
 import perfil from './images/perfil.svg';
 import sacola from './images/sacola.svg';
 
 const textoOpcoes = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
-const icones = ['sacola', 'perfil'];
+const icones = [
+  { src: sacola, alt: 'sacola' },
+  { src: perfil, alt: 'perfil' },
+];
 
 
 function App() {
@@ -15,13 +19,7 @@ function App() {
         <Logo />
         <div className="header-actions">
           <Menu items={textoOpcoes} />
-          <ul className='icones'>
-            {icones.map((icone, index) => (
-              <li key={index} className='options'>
-                <img src={icone === 'sacola' ? sacola : perfil} alt={icone} />
-              </li>
-            ))}
-          </ul>
+          <IconList items={icones} />
         </div>
       </header>
     </div>
