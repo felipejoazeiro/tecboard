@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import InputContainer from '../Input';
 import { useState } from 'react';
 
+import { livros } from './dadosPesquisa';
+
 const PesquisaContainer = styled.div`
   display: flex;
   align-items: center;
@@ -29,19 +31,20 @@ const Subtitulo = styled.p`
 `;
 
 function Pesquisa() {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleBlur = (event) => {
-        setSearchTerm(event.target.value);
-        console.log(event.target.value);
-    };
+    const [livroPesquisado, setLivroPesquisado] = useState([]);
 
     return (
         <PesquisaContainer  >
             <Titulo>Encontrar Livros</Titulo>
             <Subtitulo>Encontre os melhores livros para você</Subtitulo>
-            <InputContainer type="text" placeholder="Pesquisar livros..." onBlur={handleBlur}/>
+            <InputContainer type="text" placeholder="Pesquisar livros..." onBlur={event => {
+              const textoDigitado = event.target.value;
+              const resultadoPesquisa = livros.filter(livro => livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase()));
+              setLivroPesquisado(resultadoPesquisa);
+              console.log(resultadoPesquisa);
+            }}/>
             <button>Pesquisar</button>
+            <p></p>
         </PesquisaContainer>
     );
 }
