@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import InputContainer from '../Input';
+import { useState } from 'react';
 
 const PesquisaContainer = styled.div`
   display: flex;
@@ -28,11 +29,18 @@ const Subtitulo = styled.p`
 `;
 
 function Pesquisa() {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleBlur = (event) => {
+        setSearchTerm(event.target.value);
+        console.log(event.target.value);
+    };
+
     return (
         <PesquisaContainer  >
             <Titulo>Encontrar Livros</Titulo>
             <Subtitulo>Encontre os melhores livros para você</Subtitulo>
-            <InputContainer type="text" placeholder="Pesquisar livros..." />
+            <InputContainer type="text" placeholder="Pesquisar livros..." onBlur={handleBlur}/>
             <button>Pesquisar</button>
         </PesquisaContainer>
     );
