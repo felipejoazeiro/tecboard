@@ -9,6 +9,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 - Atualmente focado em **Back End com Node.js** (formação Alura)
 - Já passei por **React**, **Python para Dados**, **NumPy** e **Pandas**
+- Concluí o **Course 4** da trilha **Node.js Career** com o projeto **Alura Books**
 - Acredito no conceito de **Lifelong Learning** — o aprendizado não tem fim
 - Construindo projetos práticos para consolidar o conhecimento
 
@@ -18,7 +19,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 > **Formação Back End com Node.js — Alura**
 
-Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas.
+Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas. O **Course 4** da trilha já foi concluído, com o projeto **Alura Books** em React.
 
 **Em andamento:**
 - Módulos nativos do Node.js (`fs`, `path`, `http`)
@@ -50,7 +51,7 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 | [TecBoard](./fp) | React 19, CSS Modules | Painel de eventos tech com cadastro por tema |
 | [Plano de Estudos](./Hooks) | React 19, Context API, Hooks | App de checklist com gerenciamento de estado global |
 | [Poupap](./poupap) | React 19, React Router, Tailwind CSS | Controle financeiro pessoal |
-| [Alura Books](./Node.js%20Career/Course%204/alura-books) | React 19, Create React App | Catálogo de livros desenvolvido no Course 4 da trilha Node.js Career |
+| [Alura Books](./Node.js%20Career/Course%204/alura-books) | React 19, Create React App | Catálogo de livros do Course 4 concluído, com listagem, busca e recomendações |
 
 ---
 
@@ -149,6 +150,7 @@ npm start
 - [x] React — componentização, estado, hooks, roteamento
 - [x] React — Context API e hooks avançados
 - [x] React — Tailwind CSS e React Router DOM
+- [x] React — Alura Books (Course 4 da trilha Node.js Career)
 - [ ] **Node.js — módulos nativos** ← _estou aqui_
 - [ ] Node.js — NPM e dependências
 - [ ] Node.js — Express e APIs REST
