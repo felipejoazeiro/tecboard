@@ -1,6 +1,7 @@
 import { livros } from './dadosUltimosLancamentos';
 import styled from 'styled-components';
 import Titulo from '../Titulo';
+import CardRecomenda from '../CardRecomenda';
 
 const SecaoLancamentos = styled.section`
     padding: 40px 24px 64px;
@@ -57,6 +58,12 @@ function UltimosLancamentos() {
                     </CardLivro>
                 ))}
             </ListaLivros>
+            <CardRecomenda
+                titulo="Recomendações para você"
+                subtitulo="Curso completo de Angular 11"
+                descricao="Curso completo de Angular 11"
+                imagem={livros[0].src}
+            />
         </SecaoLancamentos>
     );
 }
