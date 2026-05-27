@@ -1,5 +1,6 @@
 import { livros } from './dadosUltimosLancamentos';
 import styled from 'styled-components';
+import Titulo from '../Titulo';
 
 const SecaoLancamentos = styled.section`
     padding: 40px 24px 64px;
@@ -10,11 +11,6 @@ const SecaoLancamentos = styled.section`
     align-items: center;
 `;
 
-const Titulo = styled.h2`
-    color: #FFF;
-    margin-bottom: 24px;
-    text-align: center;
-`;
 
 const ListaLivros = styled.div`
     display: grid;
@@ -52,7 +48,7 @@ const CardLivro = styled.article`
 function UltimosLancamentos() {
     return (
         <SecaoLancamentos>
-            <Titulo>Últimos Lançamentos</Titulo>
+            <Titulo color='orange'>Últimos Lançamentos</Titulo>
             <ListaLivros>
                 {livros.map((livro) => (
                     <CardLivro key={livro.id}>
