@@ -1,14 +1,16 @@
+const fs = require("fs");
+
 function getBooks(req, res) {
   try {
-    throw new Error('Something went wrong');
-    res.send('Books');
+    const books = JSON.parse(fs.readFileSync("book.json"));
+    res.send(books);
   } catch (error) {
     res.status(500).send(error.message);
   }
 }
 
 function createBook(req, res) {
-  res.send('Create a book');
+  res.send("Create a book");
 }
 
 function getBookById(req, res) {
@@ -24,9 +26,9 @@ function deleteBook(req, res) {
 }
 
 module.exports = {
-    getBooks,
-    createBook,
-    getBookById,
-    updateBook,
-    deleteBook
+  getBooks,
+  createBook,
+  getBookById,
+  updateBook,
+  deleteBook,
 };
