@@ -1,6 +1,6 @@
-import { getBooks } from "../services/books";
+import { getBooks, getBookById } from "../services/books";
 
-function getBooks(req, res) {
+function books(req, res) {
   try {
     getBooks(req, res);
   } catch (error) {
@@ -12,8 +12,12 @@ function createBook(req, res) {
   res.send("Create a book");
 }
 
-function getBookById(req, res) {
-  res.send(`Get book with id ${req.params.id}`);
+function getBook(req, res) {
+  try {
+    getBookById(req, res);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 }
 
 function updateBook(req, res) {
@@ -25,9 +29,9 @@ function deleteBook(req, res) {
 }
 
 module.exports = {
-  getBooks,
+  books,
   createBook,
-  getBookById,
+  getBook,
   updateBook,
   deleteBook,
 };
