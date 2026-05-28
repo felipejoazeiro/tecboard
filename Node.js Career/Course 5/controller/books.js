@@ -1,9 +1,8 @@
-const fs = require("fs");
+import { getBooks } from "../services/books";
 
 function getBooks(req, res) {
   try {
-    const books = JSON.parse(fs.readFileSync("book.json"));
-    res.send(books);
+    getBooks(req, res);
   } catch (error) {
     res.status(500).send(error.message);
   }
