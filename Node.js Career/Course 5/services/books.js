@@ -58,6 +58,21 @@ function updateBookService(req, res) {
   }
 }
 
+function deleteBookService(req, res) {
+  try {
+    const books = JSON.parse(fs.readFileSync("book.json"));
+    const bookIndex = books.findIndex((b) => b.id === parseInt(req.params.id));
+    if (bookIndex === -1) {
+      return res.status(404).send("Book not found");
+    }
+    books.splice(bookIndex, 1);
+    fs.writeFileSync("book.json", JSON.stringify(books));
+    res.send(`Book with id ${req.params.id} deleted`);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
+
 function checkLastId() {
   const books = JSON.parse(fs.readFileSync("book.json"));
   const lastId = books.length > 0 ? books[books.length - 1].id : 0;
@@ -69,4 +84,5 @@ module.exports = {
   getBookById,
   createBookService,
   updateBookService,
+  deleteBookService,
 };

@@ -3,6 +3,7 @@ import {
   getBookById,
   createBookService,
   updateBookService,
+  deleteBookService,
 } from "../services/books";
 
 function books(req, res) {
@@ -38,7 +39,11 @@ function updateBook(req, res) {
 }
 
 function deleteBook(req, res) {
-  res.send(`Delete book with id ${req.params.id}`);
+  try {
+    deleteBookService(req, res);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 }
 
 module.exports = {
