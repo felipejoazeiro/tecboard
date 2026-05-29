@@ -1,4 +1,4 @@
-import { getBooks, getBookById } from "../services/books";
+import { getBooks, getBookById, createBookService } from "../services/books";
 
 function books(req, res) {
   try {
@@ -9,7 +9,11 @@ function books(req, res) {
 }
 
 function createBook(req, res) {
-  res.send("Create a book");
+  try {
+    createBookService(req, res);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 }
 
 function getBook(req, res) {
