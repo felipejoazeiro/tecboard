@@ -1,5 +1,9 @@
 const fs = require("fs");
 
+function hasValidName(name) {
+  return typeof name === "string" && name.trim().length > 0;
+}
+
 function getBooks(req, res) {
   try {
     const books = JSON.parse(fs.readFileSync("book.json"));
@@ -24,6 +28,10 @@ function getBookById(req, res) {
 
 function createBookService(req, res) {
   try {
+    if (!hasValidName(req.body.nome)) {
+      return res.status(422).send("Nome do livro é obrigatório");
+    }
+
     const books = JSON.parse(fs.readFileSync("book.json"));
     const newBookId = checkLastId() + 1;
 
@@ -46,6 +54,11 @@ function updateBookService(req, res) {
     if (bookIndex === -1) {
       return res.status(404).send("Book not found");
     }
+
+    if (req.body.nome !== undefined && !hasValidName(req.body.nome)) {
+      return res.status(422).send("Nome do livro é obrigatório");
+    }
+
     const updatedBook = {
       id: books[bookIndex].id,
       nome: req.body.nome || books[bookIndex].nome,
