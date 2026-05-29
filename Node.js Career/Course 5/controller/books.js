@@ -1,4 +1,9 @@
-import { getBooks, getBookById, createBookService } from "../services/books";
+import {
+  getBooks,
+  getBookById,
+  createBookService,
+  updateBookService,
+} from "../services/books";
 
 function books(req, res) {
   try {
@@ -25,7 +30,11 @@ function getBook(req, res) {
 }
 
 function updateBook(req, res) {
-  res.send(`Update book with id ${req.params.id}`);
+  try {
+    updateBookService(req, res);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 }
 
 function deleteBook(req, res) {

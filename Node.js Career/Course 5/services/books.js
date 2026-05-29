@@ -23,30 +23,50 @@ function getBookById(req, res) {
 }
 
 function createBookService(req, res) {
-    try{
-        const books = JSON.parse(fs.readFileSync("book.json"));
-        const newBookId = checkLastId() + 1;
+  try {
+    const books = JSON.parse(fs.readFileSync("book.json"));
+    const newBookId = checkLastId() + 1;
 
-        const newBook = {
-            id: newBookId,
-            nome: req.body.nome
-        };
-        books.push(newBook);
-        fs.writeFileSync("book.json", JSON.stringify(books));
-        res.status(201).send(newBook);
-    } catch (error) {
-        res.status(500).send(error.message);
+    const newBook = {
+      id: newBookId,
+      nome: req.body.nome,
+    };
+    books.push(newBook);
+    fs.writeFileSync("book.json", JSON.stringify(books));
+    res.status(201).send(newBook);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
+
+function updateBookService(req, res) {
+  try {
+    const books = JSON.parse(fs.readFileSync("book.json"));
+    const bookIndex = books.findIndex((b) => b.id === parseInt(req.params.id));
+    if (bookIndex === -1) {
+      return res.status(404).send("Book not found");
     }
+    const updatedBook = {
+      id: books[bookIndex].id,
+      nome: req.body.nome || books[bookIndex].nome,
+    };
+    books[bookIndex] = updatedBook;
+    fs.writeFileSync("book.json", JSON.stringify(books));
+    res.send(updatedBook);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 }
 
 function checkLastId() {
-    const books = JSON.parse(fs.readFileSync("book.json"));
-    const lastId = books.length > 0 ? books[books.length - 1].id : 0;
-    return lastId;
+  const books = JSON.parse(fs.readFileSync("book.json"));
+  const lastId = books.length > 0 ? books[books.length - 1].id : 0;
+  return lastId;
 }
 
 module.exports = {
   getBooks,
   getBookById,
   createBookService,
+  updateBookService,
 };
