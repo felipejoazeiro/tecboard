@@ -4,6 +4,7 @@ import IconList from '../IconList';
 import perfil from '../../images/perfil.svg';
 import sacola from '../../images/sacola.svg';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const textoOpcoes = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
 const icones = [
@@ -33,7 +34,9 @@ const HeaderActions = styled.div`
 function Header() {
   return (
     <HeaderContainer>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       <HeaderActions>
         <Menu items={textoOpcoes} />
         <IconList items={icones} />

@@ -9,7 +9,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 - Atualmente focado em **Back End com Node.js** (formação Alura)
 - Já passei por **React**, **Python para Dados**, **NumPy** e **Pandas**
-- Concluí o **Course 4** da trilha **Node.js Career** com o projeto **Alura Books**
+- Concluí o **Course 5** da trilha **Node.js Career** com uma API de livros em Express
 - Acredito no conceito de **Lifelong Learning** — o aprendizado não tem fim
 - Construindo projetos práticos para consolidar o conhecimento
 
@@ -19,7 +19,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 > **Formação Back End com Node.js — Alura**
 
-Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas. O **Course 4** da trilha já foi concluído, com o projeto **Alura Books** em React.
+Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas. O **Course 5** da trilha já foi concluído, com uma API de livros em Express.
 
 **Em andamento:**
 - Módulos nativos do Node.js (`fs`, `path`, `http`)
@@ -40,6 +40,7 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 | [Primeira Biblioteca (Course 1)](./Node.js%20Career/Course%201) | Node.js | CLI para leitura/validação de arquivos usando `fs` e argumentos (`process.argv`) |
 | [API Express + MongoDB (Course 2)](./Node.js%20Career/Course%202) | Node.js, Express, Mongoose, dotenv, nodemon | API REST com rotas de livros/autores e verificação de conexão (`/mongo/ping`) |
 | [API Express + MongoDB (Course 3)](./Node.js%20Career/Course%203) | Node.js, Express, Mongoose, dotenv, nodemon | Projeto do curso (Alura) com API REST conectada ao MongoDB |
+| [API Express + livros (Course 5)](./Node.js%20Career/Course%205) | Node.js, Express | API REST simples com CRUD de livros, rotas e tratamento de erros |
 
 ---
 
@@ -123,6 +124,14 @@ npm install
 npm start
 ```
 
+### Node.js Career — Course 5 (API Express + livros)
+
+```bash
+cd "Node.js Career/Course 5"
+npm install
+node app.js
+```
+
 ## Tecnologias que já usei
 
 **Back End**  
@@ -151,6 +160,7 @@ npm start
 - [x] React — Context API e hooks avançados
 - [x] React — Tailwind CSS e React Router DOM
 - [x] React — Alura Books (Course 4 da trilha Node.js Career)
+- [x] Node.js — API de livros com Express (Course 5)
 - [ ] **Node.js — módulos nativos** ← _estou aqui_
 - [ ] Node.js — NPM e dependências
 - [ ] Node.js — Express e APIs REST

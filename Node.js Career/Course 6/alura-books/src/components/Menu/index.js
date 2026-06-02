@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MenuList = styled.ul`
   display: flex;
@@ -25,9 +26,11 @@ function Menu({ items }) {
   return (
     <MenuList>
       {items.map((item) => (
-        <MenuItem key={item}>
-          <p>{item}</p>
-        </MenuItem>
+        <Link key={item} to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}>
+          <MenuItem>
+            <p>{item}</p>
+          </MenuItem>
+        </Link>
       ))}
     </MenuList>
   );
