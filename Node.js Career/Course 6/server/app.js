@@ -1,10 +1,8 @@
 const express = require("express");
 const books = require("./books");
-const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors({origin: "*"}));
 
 const port = 8000;
 

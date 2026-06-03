@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import InputContainer from '../Input';
-import { useState } from 'react';
+import styled from "styled-components";
+import InputContainer from "../Input";
+import { useState, useEffect } from "react";
 
-import { livros } from './dadosPesquisa';
+import { getLivros } from "../../services/livrosService";
 
 const PesquisaContainer = styled.div`
   display: flex;
@@ -31,12 +31,12 @@ const PesquisaTopo = styled.div`
 `;
 
 const Titulo = styled.h2`
-  color: #FFF;
+  color: #fff;
   margin-right: 20px;
 `;
 
 const Subtitulo = styled.p`
-  color: #FFF;
+  color: #fff;
   margin-right: 20px;
 `;
 
@@ -57,7 +57,7 @@ const LivroCard = styled.article`
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
   padding: 16px;
-  color: #FFF;
+  color: #fff;
 
   img {
     width: 96px;
@@ -85,36 +85,57 @@ const LivroCard = styled.article`
 `;
 
 function Pesquisa() {
-    const [livroPesquisado, setLivroPesquisado] = useState([]);
+  const [livroPesquisado, setLivroPesquisado] = useState([]);
 
-    return (
-        <PesquisaContainer  >
-            <PesquisaTopo>
-              <Titulo>Encontrar Livros</Titulo>
-              <Subtitulo>Encontre os melhores livros para você</Subtitulo>
-              <InputContainer type="text" placeholder="Pesquisar livros..." onBlur={event => {
-                const textoDigitado = event.target.value;
-                const resultadoPesquisa = livros.filter(livro => livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase()));
-                setLivroPesquisado(resultadoPesquisa);
-                console.log(resultadoPesquisa);
-              }}/>
-              <button>Pesquisar</button>
-            </PesquisaTopo>
+  const [livros, setLivros] = useState([]);
 
-            <ResultadosContainer>
-              {livroPesquisado.map(livro => (
-                <LivroCard key={livro.id}>
-                  <img src={livro.imagem} alt={livro.titulo} />
-                  <div>
-                    <h3>{livro.titulo}</h3>
-                    <p>{livro.autor}</p>
-                    <p>{livro.descricao}</p>
-                  </div>
-                </LivroCard>
-              ))}
-            </ResultadosContainer>
-        </PesquisaContainer>
-    );
+  useEffect(() => {
+    const fetchLivros = async () => {
+      try {
+        const livrosData = await getLivros();
+        setLivros(livrosData);
+      } catch (error) {
+        console.error("Erro ao buscar livros:", error);
+      }
+    };
+
+    fetchLivros();
+  }, []);
+
+  return (
+    <PesquisaContainer>
+      <PesquisaTopo>
+        <Titulo>Encontrar Livros</Titulo>
+        <Subtitulo>Encontre os melhores livros para você</Subtitulo>
+        <InputContainer
+          type="text"
+          placeholder="Pesquisar livros..."
+          onBlur={(event) => {
+            const textoDigitado = event.target.value;
+            const resultadoPesquisa = livros.filter((livro) =>
+              livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase()),
+            );
+            setLivroPesquisado(resultadoPesquisa);
+            console.log(resultadoPesquisa);
+          }}
+        />
+        <button>Pesquisar</button>
+      </PesquisaTopo>
+
+      <ResultadosContainer>
+        {livroPesquisado.map((livro) => (
+          <LivroCard key={livro.id}>
+            <img src={livro.imagem} alt={livro.titulo} />
+            <div>
+              <h3>{livro.titulo}</h3>
+              <p>{livro.autor}</p>
+              <p>{livro.descricao}</p>
+            </div>
+          </LivroCard>
+        ))}
+      </ResultadosContainer>
+    </PesquisaContainer>
+  );
 }
 
 export default Pesquisa;
