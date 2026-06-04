@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Titulo from "../components/Titulo";
-import { getAllFavorites } from "../services/favoritos";
+import { getAllFavorites, deleteById } from "../services/favoritos";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -108,6 +108,17 @@ function Favoritos() {
     fetchFavoritos();
   }, []);
 
+  async function handleDeleteFavorite(id) {
+    try {
+      await deleteById(id);
+      alert("Livro removido dos favoritos!");
+      fetchFavoritos();
+    } catch (error) {
+      console.error("Erro ao remover favorito:", error);
+      alert("Erro ao remover favorito. Tente novamente.");
+    }
+  }
+
   return (
     <AppContainer>
       <Conteudo>
@@ -121,6 +132,7 @@ function Favoritos() {
                   <Selo>Favorito</Selo>
                 </CardTopo>
                 <NomeLivro>{favorito.nome}</NomeLivro>
+                <button onClick={() => handleDeleteFavorite(favorito.id)}>Remover dos favoritos</button>
               </CardFavorito>
             ))}
           </ListaFavoritos>

@@ -3,6 +3,7 @@ import InputContainer from "../Input";
 import { useState, useEffect } from "react";
 
 import { getLivros } from "../../services/livrosService";
+import { insertFavorite } from "../../services/favoritos";
 
 const PesquisaContainer = styled.div`
   display: flex;
@@ -88,19 +89,27 @@ function Pesquisa() {
   const [livroPesquisado, setLivroPesquisado] = useState([]);
 
   const [livros, setLivros] = useState([]);
-
+  const fetchLivros = async () => {
+    try {
+      const livrosData = await getLivros();
+      setLivros(livrosData);
+    } catch (error) {
+      console.error("Erro ao buscar livros:", error);
+    }
+  };
   useEffect(() => {
-    const fetchLivros = async () => {
-      try {
-        const livrosData = await getLivros();
-        setLivros(livrosData);
-      } catch (error) {
-        console.error("Erro ao buscar livros:", error);
-      }
-    };
-
     fetchLivros();
   }, []);
+
+  async function handleInsertFavorite(id) {
+    try {
+      await insertFavorite(id);
+      alert("Livro adicionado aos favoritos!");
+    } catch (error) {
+      console.error("Erro ao adicionar favorito:", error);
+      alert("Erro ao adicionar favorito. Tente novamente.");
+    }
+  }
 
   return (
     <PesquisaContainer>
@@ -130,6 +139,7 @@ function Pesquisa() {
               <h3>{livro.titulo}</h3>
               <p>{livro.autor}</p>
               <p>{livro.descricao}</p>
+              <button onClick={() => handleInsertFavorite(livro.id)}>Adicionar aos favoritos</button>
             </div>
           </LivroCard>
         ))}
