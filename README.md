@@ -1,6 +1,6 @@
 # Olá, eu sou Felipe Joazeiro 👋
 
-Desenvolvedor em formação, estudando **Back End com Node.js** na [Alura](https://www.alura.com.br).  
+Desenvolvedor em formação, estudando **Back End com Node.js** e **React** na [Alura](https://www.alura.com.br).  
 Apaixonado por tecnologia, aprendizado contínuo e construção de soluções que fazem sentido.
 
 ---
@@ -9,7 +9,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 - Atualmente focado em **Back End com Node.js** (formação Alura)
 - Já passei por **React**, **Python para Dados**, **NumPy** e **Pandas**
-- Concluí o **Course 5** da trilha **Node.js Career** com uma API de livros em Express
+- Concluí o **Course 6** da trilha **Node.js Career** com um projeto fullstack em React consumindo APIs
 - Acredito no conceito de **Lifelong Learning** — o aprendizado não tem fim
 - Construindo projetos práticos para consolidar o conhecimento
 
@@ -19,7 +19,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 
 > **Formação Back End com Node.js — Alura**
 
-Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas. O **Course 5** da trilha já foi concluído, com uma API de livros em Express.
+Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas e integração com front end em React. O **Course 6** da trilha já foi concluído, com um projeto fullstack consumindo APIs de livros e favoritos.
 
 **Em andamento:**
 - Módulos nativos do Node.js (`fs`, `path`, `http`)
@@ -53,6 +53,7 @@ Retomei os estudos de Back End com foco em Node.js, construindo desde os fundame
 | [Plano de Estudos](./Hooks) | React 19, Context API, Hooks | App de checklist com gerenciamento de estado global |
 | [Poupap](./poupap) | React 19, React Router, Tailwind CSS | Controle financeiro pessoal |
 | [Alura Books](./Node.js%20Career/Course%204/alura-books) | React 19, Create React App | Catálogo de livros do Course 4 concluído, com listagem, busca e recomendações |
+| [Alura Books Fullstack (Course 6)](./Node.js%20Career/Course%206/alura-books) | React 19, React Router DOM, Axios, styled-components | App fullstack consumindo APIs de livros e favoritos |
 
 ---
 
@@ -132,6 +133,16 @@ npm install
 node app.js
 ```
 
+### Node.js Career — Course 6 (Alura Books Fullstack)
+
+```bash
+cd "Node.js Career/Course 6/alura-books"
+npm install
+npm start
+```
+
+> O front-end consome as APIs locais de livros e favoritos, então elas precisam estar disponíveis em `http://localhost:3001/livros` e `http://localhost:8000/favorites`.
+
 ## Tecnologias que já usei
 
 **Back End**  
@@ -160,6 +171,7 @@ node app.js
 - [x] React — Context API e hooks avançados
 - [x] React — Tailwind CSS e React Router DOM
 - [x] React — Alura Books (Course 4 da trilha Node.js Career)
+- [x] React — Alura Books fullstack consumindo APIs (Course 6 da trilha Node.js Career)
 - [x] Node.js — API de livros com Express (Course 5)
 - [ ] **Node.js — módulos nativos** ← _estou aqui_
 - [ ] Node.js — NPM e dependências
