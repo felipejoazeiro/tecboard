@@ -79,3 +79,14 @@ Aprender os fundamentos de DevOps com foco em Docker, entendendo como empacotar 
 
 - `docker run hello-world` - verifica se o Docker está instalado corretamente e consegue executar containers.
 - `sudo usermod -aG docker $USER` - adiciona o usuário atual ao grupo `docker` no Linux para permitir o uso do Docker sem precisar digitar `sudo` em cada comando.
+- `docker pull ubuntu` - baixa a imagem oficial do Ubuntu no Docker Hub para a máquina.
+- `docker run ubuntu` - cria e executa um container usando a imagem `ubuntu` já baixada.
+- `docker ps` - mostra os containers que estão em execução no momento.
+- `docker ps -a` - mostra todos os containers, incluindo os que já pararam.
+- `docker stop CONTAINERNAME` - interrompe a execução de um container ativo.
+- `docker start CONTAINERNAME` - inicia novamente um container que já foi criado e parado.
+- `docker exec -it CONTAINERID bash` - executa um comando dentro de um container em execução de forma interativa; normalmente é usado para abrir um terminal no container.
+- `ls -a` - lista todos os arquivos e pastas do diretório atual, inclusive os ocultos.
+- `touch FILENAME` - cria um arquivo vazio com o nome informado ou atualiza o horário de modificação de um arquivo existente.
+- `docker stop -t=0 CONTAINERID` - para um container imediatamente, sem esperar o tempo padrão de encerramento.
+- `docker pause CONTAINERID`
