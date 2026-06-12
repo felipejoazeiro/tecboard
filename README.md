@@ -11,6 +11,7 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 - Já passei por **React**, **Python para Dados**, **NumPy** e **Pandas**
 - Concluí o **Course 6** da trilha **Node.js Career** com um projeto fullstack em React consumindo APIs
 - Concluí o **Course 7** da trilha **Node.js Career** com o curso de **Git e GitHub**
+- Concluí o **Course 8** da trilha **Node.js Career** com foco em **DevOps e Docker**
 - Acredito no conceito de **Lifelong Learning** — o aprendizado não tem fim
 - Construindo projetos práticos para consolidar o conhecimento
 
@@ -23,6 +24,8 @@ Apaixonado por tecnologia, aprendizado contínuo e construção de soluções qu
 Retomei os estudos de Back End com foco em Node.js, construindo desde os fundamentos até APIs REST completas e integração com front end em React. O **Course 6** da trilha já foi concluído, com um projeto fullstack consumindo APIs de livros e favoritos.
 
 Também concluí o **Course 7** da trilha **Node.js Career**, focado em **Git e GitHub**, reforçando o fluxo de versionamento e colaboração no dia a dia.
+
+Também concluí o **Course 8** da trilha **Node.js Career**, voltado para **DevOps com Docker**, com estudo de imagens, containers e Docker Compose.
 
 **Em andamento:**
 - Módulos nativos do Node.js (`fs`, `path`, `http`)
@@ -177,6 +180,7 @@ npm start
 - [x] React — Alura Books fullstack consumindo APIs (Course 6 da trilha Node.js Career)
 - [x] Node.js — API de livros com Express (Course 5)
 - [x] Git e GitHub (Course 7 da trilha Node.js Career)
+- [x] Docker e DevOps com Docker (Course 8 da trilha Node.js Career)
 - [ ] **Node.js — módulos nativos** ← _estou aqui_
 - [ ] Node.js — NPM e dependências
 - [ ] Node.js — Express e APIs REST
