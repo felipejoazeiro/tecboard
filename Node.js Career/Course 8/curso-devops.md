@@ -93,6 +93,6 @@ Aprender os fundamentos de DevOps com foco em Docker, entendendo como empacotar 
 - `docker run -d -P docker/exemple-project` - inicia em segundo plano e publica portas automaticamente.
 - `docker run -d -p 3000:80 docker/exemple-project` - inicia em segundo plano e mapeia a porta 3000 para 80.
 - `docker stop $(docker container ls -q)` - para todos os containers em execução.
-- `docker image ls` - 
-- `docker pull nginx` -
-- `docker ` 
+- `docker image ls` - mostra as imagens locais.
+- `docker pull nginx` - baixa a imagem `nginx`.
+- `docker ` - comando incompleto.
