@@ -89,4 +89,10 @@ Aprender os fundamentos de DevOps com foco em Docker, entendendo como empacotar 
 - `ls -a` - lista todos os arquivos e pastas do diretório atual, inclusive os ocultos.
 - `touch FILENAME` - cria um arquivo vazio com o nome informado ou atualiza o horário de modificação de um arquivo existente.
 - `docker stop -t=0 CONTAINERID` - para um container imediatamente, sem esperar o tempo padrão de encerramento.
-- `docker pause CONTAINERID`
+- `docker pause CONTAINERID` - pausa o container.
+- `docker run -d -P docker/exemple-project` - inicia em segundo plano e publica portas automaticamente.
+- `docker run -d -p 3000:80 docker/exemple-project` - inicia em segundo plano e mapeia a porta 3000 para 80.
+- `docker stop $(docker container ls -q)` - para todos os containers em execução.
+- `docker image ls` - 
+- `docker pull nginx` -
+- `docker ` 
